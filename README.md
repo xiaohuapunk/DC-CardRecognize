@@ -21,12 +21,35 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
 
 
 ##  此工程运行方法
-### 1.clone 本工程
-`git clone https://github.com/xiaohuapunk/DC-CardRecognize.git`
+- clone 本工程（或下载）
 
-### 2.将本工程引入到 5+离线SDK的 HBuilder-uniPluginDemo 工程中
-### 3.在 HBuilder-Integrate-Info.plist 的 `dcloud_uniplugins` 节点下添加如下配置
-```
+	`git clone https://github.com/xiaohuapunk/DC-CardRecognize.git`
+
+- 将工程放到 5+离线SDK的 `HBuilder-uniPluginDemo` 工程目录中
+  ![](./resource/img1.png)
+
+- 双击打开`HBuilder-uniPluginDemo`工程，将插件工程引入到 `HBuilder-uniPluginDemo` 工程中
+> 选择工程文件 -> 右键->add flie to ... -> 在插件工程目录中选择插件工程文件 -> Add 
+
+	![](./resource/img2.png)
+	
+- 将插件资源文件 `aip.license` 添加进工程
+	![](./resource/img3.png)
+	
+- 将插件工程添加到主工程依赖中
+	![](./resource/img4.png)
+	
+- 将插件库及所依赖的第三方库添加到主工程
+> **注：**百度ocr所用到的三个库均为动态库，所以需要在 `Link Binary With Libraries` 和 `Embed Frameworks` 中同时引入
+	
+	![](./resource/img6.png)
+	
+	![](./resource/img5.png)
+	
+
+- 在 HBuilder-Integrate-Info.plist 的 `dcloud_uniplugins` 节点下添加如下配置
+
+	```
 <dict>
 	<key>hooksClass</key>
    	<string></string>
@@ -44,6 +67,71 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
 </dict>
 ```
 
-### 4.添加相册，及相机使用权限
-- "NSCameraUsageDescription",
-- "NSPhotoLibraryUsageDescription"
+- 添加相册，及相机使用权限
+	- "NSCameraUsageDescription",
+	- "NSPhotoLibraryUsageDescription"
+
+- 工程已配置完成（注百度ocr库只支持 **真机运行** **真机运行** **真机运行**）
+
+- 请在`HBuilderX`自行编写测试工程，然后导出离线资源，放入到工程中进行测试
+
+### Api 说明
+
+**引用方式**
+
+`const card = uni.requireNativePlugin('DC-CardRecognize');`
+
+**方法说明**
+
+`startRecognize(options,callback)`
+> 点击会跳页扫描
+
+参数说明
+
+参数|	类型|	参数说明|
+:--|:--|:--|
+options|	json|	参数配置
+callback|	function|	返回识别结果
+
+options{object}
+
+参数|	类型|	可选参数|
+:--|:--|:--|
+maskType|	String|	IDCardFront（身份证正面）、IDCardBack（身份证背面）、BankCard（银行卡）、BusinessCard（名片）、LicensePlate（车牌）
+
+callback返回数据（数据为JSON格式，仅解释通用部分，其余部分参数不一一详释）
+
+类型|	说明|
+:--|:--|
+result|	error（异常）、success（成功）、recognize（识别中）
+path|	识别成功后返回的图片路径 (仅android，iOS请自行修改源码添加)
+
+使用方法
+
+```
+<template>
+    <view>
+        <button type="primary" @click="getIDCard()">点击识别身份证</button>
+    </view>
+</template>
+
+    const card = uni.requireNativePlugin('DC-CardRecognize');
+    export default {
+        data() {
+            return {
+            };
+        },
+        methods: {
+            getIDCard() {
+                card.startRecognize({
+                    maskType:"IDCardFront"
+                },result => {
+                    console.log(JSON.stringify(result));
+                });
+            }
+        }
+    }
+
+<style>
+</style>
+```
