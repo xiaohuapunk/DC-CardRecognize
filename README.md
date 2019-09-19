@@ -50,21 +50,22 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
 
 - 在 HBuilder-Integrate-Info.plist 的 `dcloud_uniplugins` 节点下添加如下配置
 
-  ```
+
+```
 <dict>
-	<key>hooksClass</key>
-   	<string></string>
-   	<key>plugins</key>
-        <array>
-            	<dict>
-                    <key>class</key>
-                    <string>DCCardDetectModule</string>
-                    <key>name</key>
-                    <string>DC-CardDetect</string>
-                    <key>type</key>
-                    <string>module</string>
-              </dict>
-      </array>
+  <key>hooksClass</key>
+    <string></string>
+  <key>plugins</key>
+  <array>
+    <dict>
+      <key>class</key>
+      <string>DCCardDetectModule</string>
+      <key>name</key>
+      <string>DC-CardDetect</string>
+      <key>type</key>
+      <string>module</string>
+    </dict>
+  </array>
 </dict>
 ```
 
