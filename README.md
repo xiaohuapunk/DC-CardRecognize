@@ -23,33 +23,33 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
 ##  此工程运行方法
 - clone 本工程（或下载）
 
-	`git clone https://github.com/xiaohuapunk/DC-CardRecognize.git`
+  `git clone https://github.com/xiaohuapunk/DC-CardRecognize.git`
 
 - 将工程放到 5+离线SDK的 `HBuilder-uniPluginDemo` 工程目录中
   ![](./resource/img1.png)
 
 - 双击打开`HBuilder-uniPluginDemo`工程，将插件工程引入到 `HBuilder-uniPluginDemo` 工程中
 > 选择工程文件 -> 右键->add flie to ... -> 在插件工程目录中选择插件工程文件 -> Add 
-
-	![](./resource/img2.png)
+   
+  ![](./resource/img2.png)
 	
 - 将插件资源文件 `aip.license` 添加进工程
-	![](./resource/img3.png)
+  ![](./resource/img3.png)
 	
 - 将插件工程添加到主工程依赖中
-	![](./resource/img4.png)
+  ![](./resource/img4.png)
 	
 - 将插件库及所依赖的第三方库添加到主工程
 > **注：**百度ocr所用到的三个库均为动态库，所以需要在 `Link Binary With Libraries` 和 `Embed Frameworks` 中同时引入
 	
-	![](./resource/img6.png)
+  ![](./resource/img6.png)
 	
-	![](./resource/img5.png)
+  ![](./resource/img5.png)
 	
 
 - 在 HBuilder-Integrate-Info.plist 的 `dcloud_uniplugins` 节点下添加如下配置
 
-	```
+  ```
 <dict>
 	<key>hooksClass</key>
    	<string></string>
