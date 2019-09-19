@@ -1,7 +1,7 @@
 # DC-CardRecognize
 
 ## 简介
-DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件现已支持身份证正反面识别，银行卡识别，车牌号识别。
+DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件现已支持身份证正反面识别，银行卡识别，车牌号识别。先将插件源码开源，供大家一起学习讨论
 
 ### 准备
 请前往[百度开发平台](http://ai.baidu.com/tech/ocr)申请账号，出于安全考虑，百度推荐使用授权文件方式进行开发者认证，请各位开发者申请应用之前务必认真阅读文档[http://ai.baidu.com/docs#/OCR-Android-SDK/7bb09719](http://ai.baidu.com/docs#/OCR-Android-SDK/7bb09719)。
@@ -40,6 +40,7 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
   ![](./resource/img4.png)
 	
 - 将插件库及所依赖的第三方库添加到主工程
+> 点击`+`号 -> Add Other -> 插件库目录/libs 中的 framework 库 <br>
 > **注：**百度ocr所用到的三个库均为动态库，所以需要在 `Link Binary With Libraries` 和 `Embed Frameworks` 中同时引入
 	
   ![](./resource/img6.png)
@@ -74,6 +75,7 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
 - 工程已配置完成（注百度ocr库只支持 **真机运行** **真机运行** **真机运行**）
 
 - 请在`HBuilderX`自行编写测试工程，然后导出离线资源，放入到工程中进行测试
+- 插件目录中的 `DC-CardDetect.zip` 为最终上传插件市场的插件包。可以参考一下
 
 ### Api 说明
 
