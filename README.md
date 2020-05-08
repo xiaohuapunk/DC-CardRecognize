@@ -82,7 +82,7 @@ DC-CardDetect插件是基于百度文字识别SDK创建的uni插件，该插件�
 
 **引用方式**
 
-`const card = uni.requireNativePlugin('DC-CardRecognize');`
+`const card = uni.requireNativePlugin('DC-CardDetect');`
 
 **方法说明**
 
@@ -118,7 +118,7 @@ path|	识别成功后返回的图片路径 (仅android，iOS请自行修改源�
     </view>
 </template>
 
-    const card = uni.requireNativePlugin('DC-CardRecognize');
+    const card = uni.requireNativePlugin('DC-CardDetect');
     export default {
         data() {
             return {
